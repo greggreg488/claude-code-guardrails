@@ -1,0 +1,45 @@
+{
+  "//": "Merge this 'hooks' block into ~/.claude/settings.json. Replace <HOME> with your absolute home path (install.sh does this for you). Remove any hook line you don't want. The three opt-in guards (planner-executor-separation, subagent-singleton-lock, no-clock-drift-guard) are included but commented on in the README as inert-until-configured.",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          { "type": "command", "command": "<HOME>/.claude/hooks/verify-before-assert.sh" },
+          { "type": "command", "command": "<HOME>/.claude/hooks/escalate-to-best-model.sh" }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          { "type": "command", "command": "<HOME>/.claude/hooks/stale-memory-warning.sh" }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          { "type": "command", "command": "<HOME>/.claude/hooks/no-phantom-conflict-escalation.sh" }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Agent",
+        "hooks": [
+          { "type": "command", "command": "<HOME>/.claude/hooks/subagent-singleton-lock.sh" }
+        ]
+      },
+      {
+        "matcher": "Edit|Write|Bash",
+        "hooks": [
+          { "type": "command", "command": "<HOME>/.claude/hooks/planner-executor-separation.sh" },
+          { "type": "command", "command": "<HOME>/.claude/hooks/no-clock-drift-guard.sh" }
+        ]
+      }
+    ]
+  }
+}

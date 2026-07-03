@@ -1,0 +1,11 @@
+# Internal design/planning doc — not part of the published pack.
+EXTRACTION_PLAN.md
+
+# OS / editor cruft
+.DS_Store
+
+# Local settings backups / merge temp
+*.bak
+*.bak.*
+.block.tmp.json
+settings.json.new
