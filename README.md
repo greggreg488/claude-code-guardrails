@@ -2,6 +2,8 @@
 
 **Battle-tested [Claude Code](https://docs.claude.com/en/docs/claude-code) hooks that keep autonomous and heavy sessions honest.**
 
+> 🔀 **Now cross-agent.** These guardrails also run on **OpenAI Codex** — plus a Codex `safe-full-auto` layer (hard gates that survive `danger-full-access`, a kill-switch, and an audit trail) — in the superset repo **[agent-guardrails](https://github.com/greggreg488/agent-guardrails)**. This repo stays the Claude Code–focused variant.
+
 Small, self-contained, fail-open hooks that stop the failure modes you hit once you
 let Claude Code run long and unattended: confidently asserting stale external facts,
 dumping false "which one is right?" dilemmas on you, inventing timestamps, double-
